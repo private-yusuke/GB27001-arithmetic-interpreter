@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="237af508-a7f2-4a2d-aaae-691a9ae3d559" name="Changes" comment="initial  commitd">
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Evaluator.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/EvaluatorTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/InterpreterTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/ParserTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/TokenizerTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Contract.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Contract.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Interpreter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Interpreter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Parser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Parser.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Tokenizer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Tokenizer.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +60,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -82,7 +73,7 @@
       <recent name="$PROJECT_DIR$/src/test/kotlin/interpreter" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'GB27001-arithmetic-interpreter.test'">
+  <component name="RunManager" selected="Kotlin.MainKt">
     <configuration name="EvaluatorTest.throwsZeroDivisionException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -182,8 +173,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Tests in 'GB27001-arithmetic-interpreter.test'" />
         <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Gradle.Tests in 'GB27001-arithmetic-interpreter.test'" />
         <item itemvalue="Gradle.EvaluatorTest.throwsZeroDivisionException" />
         <item itemvalue="Gradle.ParserTest.throwsExceptionWithUnknownTokenSeries" />
         <item itemvalue="Gradle.ParserTest" />

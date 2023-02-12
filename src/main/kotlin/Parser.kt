@@ -1,31 +1,38 @@
 class Parser : Contract.Parser {
-    private lateinit var tokens: List<Contract.Token>
-    private var ind = 0
+    override fun parse(tokens: List<Contract.Token>): Contract.Expression =
+        with(
+            ParsingContext(
+                ind = 0,
+                tokens = tokens
+            )
+        ) {
+            parseWithContext()
+        }
 
-    override fun parse(tokens: List<Contract.Token>): Contract.Expression {
-        this.tokens = tokens
-        ind = 0
 
+    context(ParsingContext)
+    private fun parseWithContext(): Contract.Expression {
         val expr = parseExpr()
 
         when {
-            this.tokens.size - 1 != ind ->
+            tokens.size - 1 != ind ->
                 throw IllegalStateException(
                     "All tokens must be consumed, but these are left: ${
-                        this.tokens.subList(
+                        tokens.subList(
                             ind,
-                            this.tokens.size - 1
+                            tokens.size - 1
                         )
                     }"
                 )
 
-            this.tokens.getOrNull(ind) != Contract.Token.Eof ->
-                throw IllegalStateException("Expected Eof, but got ${this.tokens.getOrNull(ind)}")
+            tokens.getOrNull(ind) != Contract.Token.Eof ->
+                throw IllegalStateException("Expected Eof, but got ${tokens.getOrNull(ind)}")
 
             else -> return expr
         }
     }
 
+    context(ParsingContext)
     private fun expect(token: Contract.Token) {
         if (tokens.size <= ind) {
             throw NoTokensLeftException("Expected $token, but no tokens left")
@@ -37,6 +44,7 @@ class Parser : Contract.Parser {
         ind++
     }
 
+    context(ParsingContext)
     private fun consume(token: Contract.Token): Boolean {
         val current = tokens.getOrNull(ind) ?: return false
         if (current == token) {
@@ -45,6 +53,7 @@ class Parser : Contract.Parser {
         } else return false
     }
 
+    context(ParsingContext)
     private fun parseMul(): Contract.Expression {
         var expr = parsePrimary()
 
@@ -61,6 +70,7 @@ class Parser : Contract.Parser {
         }
     }
 
+    context(ParsingContext)
     private fun parseExpr(): Contract.Expression {
         var expr = parseMul()
 
@@ -77,6 +87,7 @@ class Parser : Contract.Parser {
         }
     }
 
+    context(ParsingContext)
     private fun parseNumber(): Contract.Expression.Integer {
         val current = tokens[ind]
         if (current is Contract.Token.Num) {
@@ -87,6 +98,7 @@ class Parser : Contract.Parser {
         }
     }
 
+    context(ParsingContext)
     private fun parsePrimary(): Contract.Expression {
         if (consume(Contract.Token.LeftParen)) {
             val expr = parseExpr()
@@ -99,3 +111,8 @@ class Parser : Contract.Parser {
 }
 
 class NoTokensLeftException(override val message: String?) : Exception()
+
+private data class ParsingContext(
+    var ind: Int,
+    val tokens: List<Contract.Token>,
+)
